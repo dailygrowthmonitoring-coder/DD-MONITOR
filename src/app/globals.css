@@ -1,0 +1,139 @@
+/* Design tokens — ARCHITECTURE §10. Components use these variables; no hardcoded hex. */
+:root {
+  /* Dark theme (default) */
+  --bg:           #09090B;
+  /* Layout — updated by Sidebar.tsx on toggle */
+  --sidebar-w:    56px;
+  --surface:      #111113;
+  --surface-2:    #131316;
+  --border:       #1F1F23;
+  --border-2:     #27272A;
+  --accent:       #7C3AED;
+  --accent-text:  #A78BFA;
+  --ok:           #4ADE80;
+  --warn:         #FBBF24;
+  --crit:         #F87171;
+  --muted:        #52525B;
+  --text-primary: #FAFAFA;
+  color-scheme:   dark;
+  /* Glass card (verify page) */
+  --glass-bg:     rgba(17, 17, 19, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-shadow: 0 24px 64px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="light"] {
+  --bg:           #F8F8FA;
+  --surface:      #FFFFFF;
+  --surface-2:    #F2F2F7;
+  --border:       #E4E4E7;
+  --border-2:     #D4D4D8;
+  --accent:       #7C3AED;
+  --accent-text:  #6D28D9;
+  /* Status colors shifted darker so they read on white backgrounds */
+  --ok:           #16A34A;
+  --warn:         #D97706;
+  --crit:         #DC2626;
+  --muted:        #71717A;
+  --text-primary: #18181B;
+  color-scheme:   light;
+  /* Glass card (verify page) — light overrides */
+  --glass-bg:     rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(0, 0, 0, 0.07);
+  --glass-shadow: 0 24px 64px rgba(0, 0, 0, 0.09), 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-feature-settings: "tnum" on;
+}
+
+/* ── Login page animations ──────────────────────────────────────────────────── */
+
+@keyframes dd-wave-a {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-18px); }
+}
+
+@keyframes dd-wave-b {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(14px); }
+}
+
+@keyframes dd-breathe {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%       { opacity: 0.9; transform: scale(1.06); }
+}
+
+@keyframes dd-pulse-ring {
+  0%, 100% { opacity: 0.3; transform: scale(0.97); }
+  50%       { opacity: 0.7; transform: scale(1.03); }
+}
+
+/* ── 2FA verify page animations ─────────────────────────────────────────────── */
+
+/* Card / element entrance: fade + scale + lift */
+@keyframes dd-card-in {
+  from { opacity: 0; transform: scale(0.94) translateY(10px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0);    }
+}
+
+/* OTP box stagger entrance */
+@keyframes dd-box-in {
+  from { opacity: 0; transform: scale(0.78) translateY(6px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0);   }
+}
+
+/* Error shake on the OTP box row */
+@keyframes dd-shake {
+  0%, 100% { transform: translateX(0);    }
+  15%       { transform: translateX(-7px); }
+  30%       { transform: translateX(6px);  }
+  45%       { transform: translateX(-5px); }
+  60%       { transform: translateX(4px);  }
+  75%       { transform: translateX(-2px); }
+  90%       { transform: translateX(2px);  }
+}
+
+/* Success ring stroke-dashoffset draw (ring circumference = 2π × 26 ≈ 163.4, use 164) */
+@keyframes dd-ring-draw {
+  from { stroke-dashoffset: 164; }
+  to   { stroke-dashoffset: 0;   }
+}
+
+/* Success checkmark path draw (path length ≈ 45, dasharray 46) */
+@keyframes dd-check-draw {
+  from { stroke-dashoffset: 46; }
+  to   { stroke-dashoffset: 0;  }
+}
+
+/* Success text slide-up entrance */
+@keyframes dd-success-text-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+/* Spinner rotation */
+@keyframes dd-spin {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+
+/* Respect OS-level reduced-motion preference globally */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration:        0.001ms !important;
+    animation-iteration-count: 1       !important;
+    transition-duration:       0.001ms !important;
+  }
+}

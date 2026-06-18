@@ -1,0 +1,33 @@
+{
+"general_info": {
+    "generated_on":  "Fri Jun 12 06:59:05 +03 2026",
+    "generated_epoch_time":  "1781236745",
+    "time_zone":  "Asia/Baghdad",
+    "version":  "Data Domain OS 7.13.1.25-1161300",
+    "system_serialno":  "CKM00171702213",
+    "chassis_serialno":  "FCNCS171500611",
+    "dell_servicetag":  "Unspecified",
+    "model_no":  "DD9300",
+    "hw_revision":  "1",
+    "data_encryption_supported":  "Yes",
+    "tpm_device_info":  " TPM device not available",
+    "ssd_shelf_present":  "NO",
+    "hostname":  "DD9300.iq.zain.com",
+    "location":  "Baghdad",
+    "admin_email":  "DD9300DC@iq.zain.com",
+    "ha_enabled": false,
+    "uptime":  [ "06:59:10 up 203 days, 19:29, 0 users, load average: 12.83, 13.50, 13.66" , "Filesystem has been up 203 days, 19:15." ]
+}
+,
+"gds_stats" : {
+
+"gds_report" : [
+]
+
+}
+
+,
+"hwrot": {
+    "supported": false
+}
+}

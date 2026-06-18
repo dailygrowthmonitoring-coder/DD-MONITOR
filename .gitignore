@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# Next.js build output
+.next/
+out/
+
+# Vercel
+.vercel
+
+# Environment files — NEVER commit real values
+# .env.example is intentionally tracked (placeholder names only, no real values)
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# TypeScript incremental build info
+*.tsbuildinfo
+next-env.d.ts
+
+# Test coverage
+coverage/
+
+# OS noise
+.DS_Store
+Thumbs.db
